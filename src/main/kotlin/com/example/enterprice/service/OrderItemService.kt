@@ -1,28 +1,26 @@
 package com.example.enterprice.service
 
-import com.example.enterprice.model.Country
-import com.example.enterprice.model.orderItem
-import com.example.enterprice.repository.CountryRepository
-import com.example.enterprice.repository.orderItemRepository
+import com.example.enterprice.model.OrderItem
+import com.example.enterprice.repository.OrderItemRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
 
 @Service
-class orderItemService {
+class OrderItemService {
     @Autowired
-lateinit var orderItemRepository: orderItemRepository
+lateinit var orderItemRepository: OrderItemRepository
 
-    fun list(): List<orderItem> {
+    fun list(): List<OrderItem> {
         return orderItemRepository.findAll()
     }
 
-    fun save(orderItem: orderItem):orderItem {
+    fun save(orderItem: OrderItem):OrderItem {
         return orderItemRepository.save(orderItem)
     }
 
-    fun update(orderItem: orderItem):orderItem{
+    fun update(orderItem: OrderItem):OrderItem{
         try {
             orderItemRepository.findById(orderItem.id)?:throw Exception("Articulo no Encontrado")
             return orderItemRepository.save(orderItem)
@@ -31,7 +29,7 @@ lateinit var orderItemRepository: orderItemRepository
         }
     }
 
-    fun updateOrder(orderItem: orderItem):orderItem{
+    fun updateOrder(orderItem: OrderItem):OrderItem{
         try {
             var reponse = orderItemRepository.findById(orderItem.id)?: throw  Exception("Ya Existe el Id")
                 reponse.apply {

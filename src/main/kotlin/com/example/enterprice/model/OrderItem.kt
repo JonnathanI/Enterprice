@@ -1,11 +1,10 @@
 package com.example.enterprice.model
 
 import jakarta.persistence.*
-import java.util.*
 
 @Entity
 @Table(name = "orderItems")
-class orderItem {
+class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
