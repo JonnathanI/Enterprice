@@ -1,8 +1,6 @@
 package com.example.enterprice.service
 
-import com.example.enterprice.model.Country
 import com.example.enterprice.model.Merchant
-import com.example.enterprice.repository.CountryRepository
 import com.example.enterprice.repository.MerchantRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
